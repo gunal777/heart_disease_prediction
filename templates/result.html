@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="result-container">
+
+    <h1>Prediction Result</h1>
+
+    {% if "High" in prediction %}
+
+        <div class="result-card danger">
+            <h2>{{ prediction }}</h2>
+            <p>
+                The model predicts that the patient may have a higher likelihood of heart disease.
+            </p>
+        </div>
+
+    {% else %}
+
+        <div class="result-card success">
+            <h2>{{ prediction }}</h2>
+            <p>
+                The model predicts a lower likelihood of heart disease.
+            </p>
+        </div>
+
+    {% endif %}
+
+    <a href="/">
+        <button class="back-btn">
+            Predict Again
+        </button>
+    </a>
+
+</div>
+
+</body>
+</html>
